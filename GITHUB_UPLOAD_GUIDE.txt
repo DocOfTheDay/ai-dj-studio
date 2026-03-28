@@ -1,0 +1,227 @@
+╔══════════════════════════════════════════════════════════════════════╗
+║       HOW TO GET YOUR AI DJ STUDIO .EXE FROM GITHUB                 ║
+║       Written for someone who has never used GitHub before           ║
+╚══════════════════════════════════════════════════════════════════════╝
+
+This guide gets your Windows installer built and downloaded in about
+25 minutes. You do NOT need to understand code or GitHub. Just follow
+each numbered step exactly.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+PART 1 — CREATE A FREE GITHUB ACCOUNT (5 minutes)
+──────────────────────────────────────────────────
+
+1. Open your browser (Chrome, Edge, Firefox — any works)
+
+2. Go to:  https://github.com
+
+3. Click the green "Sign up" button
+
+4. Enter your email address, create a password, choose a username
+   (the username can be anything, e.g. "djstudio2026")
+
+5. Verify your email address when GitHub sends you a confirmation email
+
+6. You now have a free GitHub account ✅
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+PART 2 — CREATE A NEW REPOSITORY (3 minutes)
+─────────────────────────────────────────────
+
+A "repository" is just a folder on GitHub where your files live.
+
+1. Make sure you're signed in to github.com
+
+2. Click the green "New" button (top left, near your profile icon)
+   OR go to:  https://github.com/new
+
+3. Fill in the form:
+   • Repository name:  ai-dj-studio
+     (exactly this, lowercase with dashes)
+   • Description:  AI DJ Studio Windows App  (optional)
+   • Choose "Public"  (this is required for free GitHub Actions)
+   • ✅ Check "Add a README file"
+   • Leave everything else as default
+
+4. Click the green "Create repository" button
+
+5. You will see your new empty repository page ✅
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+PART 3 — UPLOAD THE FILES (10 minutes)
+────────────────────────────────────────
+
+You will now upload the files from the ZIP package you downloaded.
+First, extract the ZIP if you haven't already:
+  • Right-click the ZIP file → Extract All → Extract
+
+Then upload in this order:
+
+── Upload the main files ──────────────────────────────────────────
+
+1. On your repository page, click "Add file" → "Upload files"
+
+2. Drag and drop these files from the extracted ZIP folder:
+     • ai_dj_complete.py
+     • README.md
+     • FFMPEG_SETUP.txt
+     • version_info.txt
+
+3. At the bottom, type a message like "Add main app files"
+
+4. Click "Commit changes"
+
+── Create the assets folder ────────────────────────────────────────
+
+5. On your repository page, click "Add file" → "Upload files"
+
+6. Before dragging files, you need to type a folder path.
+   Click inside the file name area at the top where it shows
+   your repository name, and type:  assets/
+   (GitHub will create the folder automatically)
+
+7. Drag and drop ALL files from the assets/ folder:
+     • app_icon.ico
+     • app_icon.png
+     • splash_screen.png
+     • logo_full.png
+     • installer_banner.bmp
+     • installer_sidebar.bmp
+     • tray_icon.png
+     • icon_256.png
+
+8. Type "Add assets" and click "Commit changes"
+
+── Create the GitHub Actions workflow folder ─────────────────────
+
+9. On your repository page, click "Add file" → "Upload files"
+
+10. Click in the path area and type:  .github/workflows/
+    (note the dot at the start — that's important)
+
+11. Drag and drop this file:
+      • build_windows.yml
+
+12. Type "Add build workflow" and click "Commit changes"
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+PART 4 — WATCH THE BUILD RUN (15-20 minutes)
+─────────────────────────────────────────────
+
+The moment you uploaded build_windows.yml, GitHub automatically
+started building your Windows app on a free cloud server.
+
+1. On your repository page, click the "Actions" tab at the top
+
+2. You will see "Build AI DJ Studio Windows Installer" running
+   with a yellow spinning circle ⟳
+
+3. Click on it to watch the progress in real-time
+   You will see each step tick off:
+   ✅ Checkout repository
+   ✅ Set up Python 3.11
+   ✅ Install Python dependencies  (takes ~8 minutes)
+   ✅ Verify package installation
+   ✅ Regenerate visual assets
+   ✅ Write PyInstaller spec
+   ✅ Build Windows EXE          (takes ~5 minutes)
+   ✅ Verify EXE exists
+   ✅ Write Inno Setup script
+   ✅ Build Setup.exe             (takes ~2 minutes)
+   ✅ Zip the portable folder
+   ✅ Upload Setup.exe
+   ✅ Upload Portable ZIP
+   ✅ Upload raw EXE only
+   ✅ Build Summary
+
+4. When ALL steps show ✅ and the circle turns green ✅,
+   the build is complete!
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+PART 5 — DOWNLOAD YOUR .EXE (2 minutes)
+────────────────────────────────────────
+
+1. On the Actions page, click on the completed (green ✅) build run
+
+2. Scroll down to the bottom of the page
+
+3. You will see a section called "Artifacts" with three downloads:
+
+   📦  AI-DJ-Studio-Setup-exe      ← RECOMMENDED (full installer)
+   📦  AI-DJ-Studio-Portable-zip   ← no install needed
+   📦  AIDJStudio-exe-only         ← just the EXE
+
+4. Click "AI-DJ-Studio-Setup-exe" to download it
+
+5. It downloads as a ZIP — extract it to find:
+   AI_DJ_Studio_v2.0_Setup.exe
+
+6. Double-click AI_DJ_Studio_v2.0_Setup.exe
+
+7. Follow the installer (click Next, choose where to install, Finish)
+
+8. AI DJ Studio appears in your Start Menu and (if you chose it)
+   on your Desktop! 🎉
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+PART 6 — INSTALL FFMPEG (3 minutes)
+─────────────────────────────────────
+
+FFmpeg is needed for downloading music and mixing.
+
+1. Press  Windows Key + X  on your keyboard
+
+2. Click "Terminal" (or "Windows PowerShell")
+
+3. Type this and press Enter:
+   winget install ffmpeg
+
+4. Wait for it to finish (about 2 minutes)
+
+5. Close the terminal
+
+6. Open AI DJ Studio — you're ready to mix! 🎧
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+TROUBLESHOOTING
+───────────────
+
+Build failed (red ✗):
+  → Click the failed step to see the error
+  → Most common fix: make sure ALL files were uploaded correctly
+  → Make sure build_windows.yml is in the .github/workflows/ folder
+
+"Windows protected your PC" warning when running Setup.exe:
+  → This is normal for new apps without a code signing certificate
+  → Click "More info" → "Run anyway"
+  → The app is completely safe — this is just Windows being cautious
+
+App opens but download fails:
+  → FFmpeg is not installed — run: winget install ffmpeg
+
+Can't find the .github/workflows/ folder in GitHub upload:
+  → When uploading build_windows.yml, type the path manually
+    in the filename box:  .github/workflows/build_windows.yml
+    GitHub will create the folders automatically
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+EVERY TIME YOU WANT TO UPDATE THE APP:
+────────────────────────────────────────
+
+If you ever want to update the app (new features, fixes):
+  1. Upload the new ai_dj_complete.py to GitHub
+  2. GitHub automatically rebuilds the EXE
+  3. Download the new installer from Artifacts
+  4. Run the new Setup.exe — it updates cleanly
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+That's everything. Total time from zero to installed app: ~25 minutes.

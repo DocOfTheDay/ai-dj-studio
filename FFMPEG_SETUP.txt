@@ -1,0 +1,94 @@
+╔══════════════════════════════════════════════════════════════════╗
+║         AI DJ Studio — FFmpeg Setup for Windows                  ║
+║         Required for: downloading music & mixing audio           ║
+╚══════════════════════════════════════════════════════════════════╝
+
+FFmpeg is a free, open-source audio/video tool that AI DJ Studio
+uses to download music from YouTube and process audio files.
+It takes about 3 minutes to install.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+METHOD 1 — WINGET (Easiest, Windows 10/11)
+──────────────────────────────────────────
+1. Press  Windows Key + X
+2. Click "Terminal" (or "Command Prompt")
+3. Type this command and press Enter:
+
+   winget install ffmpeg
+
+4. Wait for it to finish (1-2 minutes)
+5. Close and reopen AI DJ Studio
+6. Done! ✅
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+METHOD 2 — CHOCOLATEY (Also easy)
+──────────────────────────────────
+If you have Chocolatey installed:
+
+   choco install ffmpeg
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+METHOD 3 — MANUAL INSTALL
+──────────────────────────
+1. Go to: https://www.gyan.dev/ffmpeg/builds/
+2. Download: ffmpeg-release-essentials.zip
+3. Extract the zip file
+4. Inside you will find a folder like "ffmpeg-7.x-essentials_build"
+5. Copy that folder to: C:\ffmpeg\
+   (so the path is C:\ffmpeg\bin\ffmpeg.exe)
+6. Add to PATH:
+   a. Press Windows Key, search "Environment Variables"
+   b. Click "Edit the system environment variables"
+   c. Click "Environment Variables..."
+   d. Under "System variables", find and click "Path"
+   e. Click "Edit" → "New"
+   f. Type: C:\ffmpeg\bin
+   g. Click OK → OK → OK
+7. Restart AI DJ Studio
+8. Done! ✅
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+HOW TO VERIFY FFMPEG IS INSTALLED:
+───────────────────────────────────
+1. Open Command Prompt (Windows + R, type cmd, Enter)
+2. Type: ffmpeg -version
+3. You should see something like:
+   ffmpeg version 7.x Copyright (c) 2000-2024...
+
+If you see that, FFmpeg is installed correctly. ✅
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+WHAT WORKS WITHOUT FFMPEG:
+───────────────────────────
+✅ Opening the app
+✅ Viewing DJ styles
+✅ Managing playlists  
+✅ Waveform Visualizer
+✅ DJ Battle Mode (if you already have audio files)
+✅ Adding local MP3/WAV/FLAC files from your computer
+
+WHAT NEEDS FFMPEG:
+──────────────────
+❌ Downloading from YouTube
+❌ Mixing/beatmatching tracks
+❌ Auto-Mix AI
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+AMD RYZEN 7840HS NOTE:
+──────────────────────
+Your AMD Ryzen 7840HS with Radeon 780M is an excellent processor
+for this application. AI DJ Studio will automatically use multiple
+CPU cores for faster mixing. No additional drivers are needed.
+
+For best performance:
+• Set Windows power plan to "Best Performance"
+• Close other heavy applications during long auto-mixes
+• The integrated Radeon 780M handles the UI rendering efficiently
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
