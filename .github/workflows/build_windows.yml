@@ -1,0 +1,77 @@
+name: Build AI DJ Studio
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: windows-2022
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.11'
+
+    - name: Install packages
+      shell: cmd
+      run: |
+        python -m pip install --upgrade pip
+        pip install numpy==1.26.4
+        pip install scipy
+        pip install librosa
+        pip install soundfile
+        pip install pydub
+        pip install yt-dlp
+        pip install Pillow
+        pip install pyinstaller
+
+    - name: Build EXE
+      shell: python
+      run: |
+        import subprocess, sys
+        subprocess.run([sys.executable, "-m", "PyInstaller",
+          "--onedir", "--windowed", "--clean", "--noconfirm",
+          "--name", "AIDJStudio",
+          "--hidden-import", "librosa",
+          "--hidden-import", "soundfile",
+          "--hidden-import", "pydub",
+          "--hidden-import", "yt_dlp",
+          "--hidden-import", "PIL",
+          "--collect-all", "librosa",
+          "--collect-all", "numpy",
+          "--collect-all", "scipy",
+          "--collect-all", "soundfile",
+          "--collect-submodules", "yt_dlp",
+          "ai_dj_complete.py"], check=True)
+
+    - name: Zip app
+      shell: python
+      run: |
+        import zipfile, os
+        with zipfile.ZipFile("AI_DJ_Studio_v2_Portable.zip","w",zipfile.ZIP_DEFLATED) as z:
+          for root,dirs,files in os.walk("dist/AIDJStudio"):
+            dirs[:] = [d for d in dirs if d!="__pycache__"]
+            for f in files:
+              fp = os.path.join(root,f)
+              z.write(fp, os.path.relpath(fp,"dist"))
+        print("Done:", os.path.getsize("AI_DJ_Studio_v2_Portable.zip")//1024//1024,"MB")
+
+    - name: Upload portable app
+      uses: actions/upload-artifact@v4
+      with:
+        name: AI-DJ-Studio-Portable
+        path: AI_DJ_Studio_v2_Portable.zip
+        retention-days: 90
+
+    - name: Upload EXE only
+      uses: actions/upload-artifact@v4
+      with:
+        name: AIDJStudio-exe
+        path: dist/AIDJStudio/AIDJStudio.exe
+        retention-days: 90
